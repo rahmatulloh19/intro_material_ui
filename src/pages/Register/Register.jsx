@@ -30,6 +30,8 @@ export const Register = () => {
       .post("http://localhost:3000/register", data)
       .then((response) => {
         localStorage.setItem("token", response.data.accessToken);
+        localStorage.setItem("me", JSON.stringify(response.data.user));
+
         navigate("/");
       })
       .catch((error) => {

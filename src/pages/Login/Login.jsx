@@ -3,15 +3,19 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  const navigate = Navigate();
+  const navigate = useNavigate();
 
   const schema = Yup.object({
     email: Yup.string().required("Required !").email(),
     password: Yup.string().required("Required !").min(3, "Minimum 3 chars required").max(12, "Maximum 12 chars required"),
   });
+
+  if (localStorage.getItem("token")) {
+    navigate("/");
+  }
 
   const {
     register,
@@ -27,7 +31,7 @@ export const Login = () => {
       .post("http://localhost:3000/login", data)
       .then((response) => {
         localStorage.setItem("token", response.data.accessToken);
-        if (response.status === 201) alert("Registered");
+        localStorage.setItem("me", JSON.stringify(response.data.user));
         navigate("/");
       })
       .catch((error) => {
@@ -39,7 +43,7 @@ export const Login = () => {
     <Container>
       <Box mt={10}>
         <Typography as="h1" variant="h3" letterSpacing={5} fontWeight={700} gutterBottom textAlign="center">
-          Register
+          Login
         </Typography>
 
         <Stack
@@ -77,7 +81,7 @@ export const Login = () => {
             error={errors.password && true}
           />
 
-          <Button variant="outlined" type="submit" sx={{ width: "25%", padding: 1, ml: "auto" }}>
+          <Button variant="contained" type="submit" sx={{ width: "25%", padding: 1, ml: "auto" }}>
             Outlined
           </Button>
         </Stack>
