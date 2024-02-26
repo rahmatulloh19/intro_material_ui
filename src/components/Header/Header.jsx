@@ -1,25 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Container, Stack, Typography, Avatar, Button, Box, IconButton, Drawer } from "@mui/material";
+import { Link } from "react-router-dom";
+import { Stack, Typography, Avatar, Button, Box, IconButton } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { useState } from "react";
 
-export const Client = () => {
-  const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
-
-  if (!localStorage.getItem("token")) {
-    navigate("/login");
-  }
-
-  const handleLogOut = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
-
-  const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen);
-  };
-
+export const Header = ({ toggleDrawer }) => {
   function stringToColor(string) {
     let hash = 0;
     let i;
@@ -49,28 +32,22 @@ export const Client = () => {
     };
   }
   const me = JSON.parse(localStorage.getItem("me"));
-  const avatar = `${me.first_name}${me.last_name}`;
+  const avatar = me && `${me.first_name}${me.last_name}`;
 
   return (
-    <Container>
-      <Stack flexDirection={"row"} alignItems={"center"} justifyContent="space-between" paddingBlock={4}>
-        <Typography as={Link} variant="h4" fontWeight={600} letterSpacing={4} to="/" sx={{ textDecoration: "none" }}>
-          LOGO
-        </Typography>
-        <Box display={"flex"} gap={2}>
-          <IconButton onClick={toggleDrawer(true)} aria-label="delete" size="large" color="secondary">
-            <AddShoppingCartIcon />
-          </IconButton>
-          <Avatar {...stringAvatar(avatar)} />
-          <Button color="warning" variant="contained" type="button" onClick={handleLogOut}>
-            Log Out
-          </Button>
-        </Box>
-      </Stack>
-
-      <Drawer open={open} anchor="right" onClose={toggleDrawer(false)}>
-        <p style={{ width: "250px" }}>Hello world</p>
-      </Drawer>
-    </Container>
+    <Stack flexDirection={"row"} alignItems={"center"} justifyContent="space-between" paddingBlock={4}>
+      <Typography as={Link} variant="h4" fontWeight={600} letterSpacing={4} to="/" color={"blue"} sx={{ textDecoration: "none" }}>
+        LOGO
+      </Typography>
+      <Box display={"flex"} gap={2} alignItems={"center"}>
+        <IconButton onClick={toggleDrawer(true)} aria-label="delete" size="large" color="secondary">
+          <AddShoppingCartIcon />
+        </IconButton>
+        {me ? <Avatar {...stringAvatar(avatar)} /> : ""}
+        <Button variant="contained" as={Link} sx={{ textDecoration: "none", textAlign: "center" }} fontWeight="500" to="/login">
+          SIGN IN
+        </Button>
+      </Box>
+    </Stack>
   );
 };
