@@ -1,5 +1,70 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "adad@adad",
+      "password": "$2a$10$HAmXg/I.3ibuIEWTXyPglOFjdrgYWsXR6c87m2DkZXam7AOTQzTbu",
+      "first_name": "adad",
+      "last_name": "adadad",
+      "gender": "Male",
+      "id": 1
+    },
+    {
+      "email": "dadadad@ada",
+      "password": "$2a$10$y399z.uzdIQKjIMotHexYORPLPpVmiTeyTfkG3xJJlE0H9M6VjwcG",
+      "first_name": "aada",
+      "last_name": "adada",
+      "gender": "Female",
+      "id": 2
+    },
+    {
+      "email": "raxmonov@gmail.com",
+      "password": "$2a$10$ynYXa6TrXaymUDOBhUCuKe9yEKlQ6TNG57ktWU6GKUR3WGr1iZN3C",
+      "first_name": "Rahmatulloh",
+      "last_name": "Raxmonov",
+      "gender": "Male",
+      "id": 3
+    },
+    {
+      "email": "adada@adad",
+      "password": "$2a$10$5tpejPQrgU4Eq1E1u9FYL.ivo7s4.nxW51mxt3IRxP8hsWd4W/0mG",
+      "first_name": "aaaa",
+      "last_name": "aaaa",
+      "gender": "Male",
+      "id": 4
+    },
+    {
+      "email": "adaw@add",
+      "password": "$2a$10$yH2ch6evYAl51pvdx2wzAem8RP6dfm/ZbJA5g7/CjIVTo4.hc2.uW",
+      "first_name": "adad",
+      "last_name": "adada",
+      "gender": "Male",
+      "id": 5
+    },
+    {
+      "email": "adaw@add11",
+      "password": "$2a$10$ujswPmZGvj0g/7JDhFFdqeG1w2ZhxXMwdcWJzDWmaqqLXISbB2Ns2",
+      "first_name": "adad",
+      "last_name": "adada",
+      "gender": "Male",
+      "id": 6
+    },
+    {
+      "email": "adada@ada",
+      "password": "$2a$10$G1hf7A2J1w0Ov9/Xm5xk9u9YfLrRI86nHqEl9IMU1jPvEkVySGHeu",
+      "first_name": "dada",
+      "last_name": "adadad",
+      "gender": "Male",
+      "id": 7
+    },
+    {
+      "email": "helloworld@image",
+      "password": "$2a$10$/YB.p/dUwA.R3qsheER/RevlRmCVGLc5JeeInKdkt4o/5Yz2A2.JO",
+      "first_name": "Hello ",
+      "last_name": "World",
+      "gender": "Male",
+      "id": 8
+    }
+  ],
   "category": [],
   "products": [],
   "orders": []
