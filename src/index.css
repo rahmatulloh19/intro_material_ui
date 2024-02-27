@@ -1,0 +1,45 @@
+/* Mobile first */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+}
+
+img {
+  display: block;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.site-main {
+  flex-grow: 1;
+}
+
+#root {
+  height: 100%;
+}
+
+.active {
+  background-color: #fff !important;
+  color: blue !important;
+}

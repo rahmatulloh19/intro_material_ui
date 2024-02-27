@@ -63,6 +63,22 @@
       "last_name": "World",
       "gender": "Male",
       "id": 8
+    },
+    {
+      "email": "adad@a",
+      "password": "$2a$10$CTx.mRBeFIBsh3uHe6tVQe0kSgM18pjmy3TRzPmaVg0E13.5wD3Fe",
+      "first_name": "kimdir",
+      "last_name": "nomai",
+      "gender": "Male",
+      "id": 9
+    },
+    {
+      "email": "adad@aada",
+      "password": "$2a$10$5W0fTnD/Fo/uDpDxfPOJXeNCSZPAHL5JYDZYk9tRSdASgvRAjQp/G",
+      "first_name": "kkkk",
+      "last_name": "adada",
+      "gender": "Male",
+      "id": 10
     }
   ],
   "category": [],

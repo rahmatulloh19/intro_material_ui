@@ -32,7 +32,9 @@ export const Header = ({ toggleDrawer }) => {
     };
   }
   const me = JSON.parse(localStorage.getItem("me"));
-  const avatar = me && `${me.first_name}${me.last_name}`;
+  const avatar = me && `${me.first_name} ${me.last_name}`;
+
+  console.log(me);
 
   return (
     <Stack flexDirection={"row"} alignItems={"center"} justifyContent="space-between" paddingBlock={4}>
