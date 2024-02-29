@@ -59,7 +59,7 @@
     {
       "email": "helloworld@image",
       "password": "$2a$10$/YB.p/dUwA.R3qsheER/RevlRmCVGLc5JeeInKdkt4o/5Yz2A2.JO",
-      "first_name": "Hello ",
+      "first_name": "Hello",
       "last_name": "World",
       "gender": "Male",
       "id": 8
@@ -79,6 +79,22 @@
       "last_name": "adada",
       "gender": "Male",
       "id": 10
+    },
+    {
+      "email": "qwerty@gmail.com",
+      "password": "$2a$10$XV/SPrPMU/dndw6Lm9vxBOt4kFH47EAWS9BxvxsGo0NT6sRlpKlRW",
+      "first_name": "Rahmatulloh",
+      "last_name": "Raxmonov",
+      "gender": "Male",
+      "id": 11
+    },
+    {
+      "email": "ada@aa",
+      "password": "$2a$10$dpvPgVGG4ui4cG3lKWvfX..28lDTEmsI0L73pDUEjiz5e.s2Nh8lq",
+      "first_name": "Hello",
+      "last_name": "mother",
+      "gender": "Female",
+      "id": 12
     }
   ],
   "category": [],

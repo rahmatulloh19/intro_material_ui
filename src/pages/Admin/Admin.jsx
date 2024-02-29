@@ -14,7 +14,6 @@ export const Admin = () => {
           marginBlock={2}
           display={"block"}
           component={NavLink}
-          activeClassName="activcha"
           sx={{
             color: "white",
             textAlign: "center",
@@ -61,8 +60,8 @@ export const Admin = () => {
         <Box bgcolor={"blue"}>
           <Typography variant="h5" textAlign={"center"} fontWeight={700} letterSpacing={4} paddingBlock={2}>
             ADMIN
-            <Outlet />
           </Typography>
+          <Outlet />
         </Box>
       </Box>
     </Box>

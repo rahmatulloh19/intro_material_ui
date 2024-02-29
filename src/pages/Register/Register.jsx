@@ -102,6 +102,7 @@ export const Register = () => {
           />
           <Autocomplete
             sx={{ width: "100%" }}
+            id="helloWorld"
             options={[
               {
                 label: "Male",
@@ -110,6 +111,7 @@ export const Register = () => {
                 label: "Female",
               },
             ]}
+            isOptionEqualToValue={(option, value) => option.id === value.id}
             renderInput={(params) => (
               <TextField {...params} label="Gender" required name="gender" {...register("gender")} helperText={errors?.gender ? errors?.gender?.message : ""} error={errors.gender && true} />
             )}

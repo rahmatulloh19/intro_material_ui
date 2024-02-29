@@ -13,9 +13,9 @@ export const Login = () => {
     password: Yup.string().required("Required !").min(3, "Minimum 3 chars required").max(12, "Maximum 12 chars required"),
   });
 
-  if (localStorage.getItem("token")) {
-    navigate("/");
-  }
+  // if (localStorage.getItem("token")) {
+  //   navigate("/");
+  // }
 
   const {
     register,
@@ -27,6 +27,7 @@ export const Login = () => {
   });
 
   const onSubmit = (data) => {
+    console.log(data);
     axios
       .post("http://localhost:3000/login", data)
       .then((response) => {
