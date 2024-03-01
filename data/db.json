@@ -97,7 +97,28 @@
       "id": 12
     }
   ],
-  "category": [],
+  "category": [
+    {
+      "category_name": "Apple",
+      "id": 1
+    },
+    {
+      "category_name": "Samsung",
+      "id": 2
+    },
+    {
+      "category_name": "Nokia",
+      "id": 3
+    },
+    {
+      "category_name": "Oppo",
+      "id": 4
+    },
+    {
+      "category_name": "Vivo",
+      "id": 5
+    }
+  ],
   "products": [],
   "orders": []
 }
