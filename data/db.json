@@ -117,6 +117,14 @@
     {
       "category_name": "Vivo",
       "id": 5
+    },
+    {
+      "category_name": "Lenovo",
+      "id": 6
+    },
+    {
+      "category_name": "Xiamo",
+      "id": 7
     }
   ],
   "products": [],

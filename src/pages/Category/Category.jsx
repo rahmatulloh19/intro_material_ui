@@ -1,7 +1,7 @@
 import { Alert, Box, Button, Snackbar, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { api } from "../../API/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Category = () => {
   const [state, setState] = useState({
@@ -9,6 +9,7 @@ export const Category = () => {
     message: "",
     severity: "",
   });
+  const [rows, setRows] = useState(null);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -20,6 +21,27 @@ export const Category = () => {
         open: false,
       };
     });
+  };
+
+  const getCategory = async () => {
+    const data = await api
+      .getCategory()
+      .then((res) => {
+        if (res.status === 200) {
+          setRows(res.data);
+        }
+      })
+      .catch(() => {
+        setState(() => {
+          return {
+            open: true,
+            message: "Cannot get categories",
+            severity: "error",
+          };
+        });
+      });
+
+    return data;
   };
 
   const handleSubmit = (evt) => {
@@ -39,6 +61,8 @@ export const Category = () => {
               severity: "success",
             };
           });
+          evt.target[0].value = "";
+          getCategory();
         }
       })
       .catch(() => {
@@ -52,41 +76,53 @@ export const Category = () => {
       });
   };
 
+  const handleEdit = () => {};
+  const handleDelete = () => {};
+
+  useEffect(() => {
+    getCategory();
+  }, []);
+
   return (
     <>
-      <Typography variant="h4" color={"blue"} fontWeight={500} letterSpacing={4}>
-        <Box component={"form"} justifyContent={"center"} display={"flex"} gap={2} onSubmit={handleSubmit}>
-          <TextField label="Category name" sx={{ width: "45%" }} required />
-          <Button startIcon={<AddIcon />} variant="outlined" color="success" type="submit">
-            Add
-          </Button>
-        </Box>
+      <Typography variant="h4" color={"blue"} fontWeight={500} letterSpacing={4} textAlign={"center"} gutterBottom>
+        Categories
       </Typography>
-      <TableContainer component={Box} marginTop={4}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>CATEGORY NAME</TableCell>
-              <TableCell align="justify">ACTIONS</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>1</TableCell>
-              <TableCell>Lizard</TableCell>
-              <TableCell align="justify">
-                <Button variant="contained" sx={{ marginRight: 2 }} color="warning">
-                  Edit
-                </Button>
-                <Button variant="contained" color="error">
-                  Edit
-                </Button>
-              </TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <Box component={"form"} justifyContent={"center"} display={"flex"} gap={2} onSubmit={handleSubmit}>
+        <TextField label="Category name" sx={{ width: "45%" }} required />
+        <Button startIcon={<AddIcon />} variant="contained" color="success" type="submit">
+          Add
+        </Button>
+      </Box>
+      {rows && (
+        <TableContainer component={Box} marginTop={4}>
+          <Table>
+            <TableHead>
+              <TableRow hover>
+                <TableCell>ID</TableCell>
+                <TableCell>CATEGORY NAME</TableCell>
+                <TableCell align="justify">ACTIONS</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.id} hover>
+                  <TableCell>{row.id}</TableCell>
+                  <TableCell>{row.category_name}</TableCell>
+                  <TableCell align="justify">
+                    <Button variant="contained" sx={{ marginRight: 2 }} color="warning" handleEdit={handleEdit}>
+                      Edit
+                    </Button>
+                    <Button variant="contained" handleDelete={handleDelete} color="error">
+                      Edit
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      )}
 
       <Snackbar open={state.open} autoHideDuration={5000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={state.severity} variant="filled" sx={{ width: "100%" }}>
