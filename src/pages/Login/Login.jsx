@@ -13,10 +13,6 @@ export const Login = () => {
     password: Yup.string().required("Required !").min(3, "Minimum 3 chars required").max(12, "Maximum 12 chars required"),
   });
 
-  // if (localStorage.getItem("token")) {
-  //   navigate("/");
-  // }
-
   const {
     register,
     handleSubmit,

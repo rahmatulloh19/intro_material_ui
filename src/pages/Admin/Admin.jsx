@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 export const Admin = () => {
   return (
     <Box display={"grid"} color={"white"} height={"100%"} sx={{ gridTemplateColumns: "25% 1fr" }}>
-      <Box bgcolor={"blue"}>
+      <Box bgcolor={"blue"} height={"100%"} position={"sticky"}>
         <Typography variant="h4" textAlign={"center"} fontWeight={700} letterSpacing={4} marginBlock={2}>
           LOGO
         </Typography>
@@ -19,6 +19,7 @@ export const Admin = () => {
             textAlign: "center",
             textDecoration: "none",
             bgcolor: "blue",
+            paddingBlock: "8px",
           }}
           end
           to="/admin"
@@ -29,12 +30,13 @@ export const Admin = () => {
           letterSpacing={4}
           marginBlock={2}
           display={"block"}
-          as={NavLink}
+          component={NavLink}
           sx={{
             color: "white",
             textAlign: "center",
             textDecoration: "none",
             bgcolor: "blue",
+            paddingBlock: "8px",
           }}
           to="products"
         >
@@ -44,23 +46,26 @@ export const Admin = () => {
           letterSpacing={4}
           marginBlock={2}
           display={"block"}
-          as={NavLink}
+          component={NavLink}
           sx={{
             color: "white",
             textAlign: "center",
             textDecoration: "none",
             bgcolor: "blue",
+            paddingBlock: "8px",
           }}
           to="orders"
         >
           Orders
         </Typography>
       </Box>
-      <Box>
-        <Box bgcolor={"blue"}>
-          <Typography variant="h5" textAlign={"center"} fontWeight={700} letterSpacing={4} paddingBlock={2}>
+      <Box height={"100%"}>
+        <Box>
+          <Typography variant="h3" textAlign={"center"} fontWeight={700} letterSpacing={20} paddingBlock={2} color={"WindowText"}>
             ADMIN
           </Typography>
+        </Box>
+        <Box padding={4} height={"100%"}>
           <Outlet />
         </Box>
       </Box>
